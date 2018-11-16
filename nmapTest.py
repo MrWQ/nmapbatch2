@@ -1,4 +1,4 @@
-#!/usr/bin/python
+﻿#!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
 import os
@@ -23,8 +23,13 @@ def getIpList(filePath):
         if len(ip) < 8 and len(ip) > 0:  # 如果长度小于8 说明不是ip ,简单判断ip
             print 'ip.txt第',str(count),'行 有错误。','内容为：',ip
             log(filePath + '文件 第 ' + str(count) + ' 行有错误。  内容为：' + ip + '    '+ time.strftime('%Y.%m.%d %H:%M:%S',time.localtime(time.time())))
+        elif len(ip) ==0:
+            pass
         else:
-            ipList.append(ip)
+            if ip in ipList:
+                pass
+            else:
+                ipList.append(ip)
     return ipList
 
 # 创建文件夹
